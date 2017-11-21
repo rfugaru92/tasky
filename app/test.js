@@ -4,6 +4,6 @@ export default class Test {
   }
 
   shout() {
-    console.log('Aaaargh!');
+    console.log('Aaaasssrgh!');
   }
 }
