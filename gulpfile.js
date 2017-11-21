@@ -22,6 +22,15 @@ gulp.task('js', function() {
     .pipe(connect.reload()); //reload the browser
 });
 
+gulp.task('sw', function() {
+  browserify('./app/sw.js')
+    .transform(babelify,{presets:['es2015']})
+    .bundle()
+    .pipe(source('sw.js')) //bundle code into sw.js
+    .pipe(gulp.dest('./dist')) //save it to dist/
+    .pipe(connect.reload()); //reload the browser
+});
+
 gulp.task('html', function() {
   gulp.src('./app/*.html')
     .pipe(gulp.dest('./dist'))
@@ -30,10 +39,11 @@ gulp.task('html', function() {
 
 gulp.task('watch',function() {
   gulp.watch('./app/**/*.js', ['js']);
+  gulp.watch('./app/sw.js', ['sw']);
   gulp.watch('./app/*.html', ['html']);
 })
 
 
-gulp.task('default', ['js', 'html', 'connect', 'watch'], function(){
+gulp.task('default', ['js', 'html', 'connect', 'sw', 'watch'], function(){
 
 });

@@ -5,15 +5,18 @@
   <script src="scripts/bundle.js"></script>
 </head>
 <body>
-  <script type="text/babel">
-    class newClass {
-      sayHello() {
-        console.log('Hello');
+  <h2>change</h2>
+  <script type="text/javascript">
+  // console.log('starting script')
+      if('serviceWorker' in navigator) {
+        // console.log('what about uss?');
+      navigator.serviceWorker
+               .register('sw.js')
+               .then(function() { console.log("Service Worker Registered"); });
+      } else{
+        console.log('Gulp sucks');
       }
-    }
 
-    let obj = new newClass();
-    obj.sayHello();
   </script>
 </body>
 </html>
