@@ -2,10 +2,27 @@
 <head>
   <meta charset="utf-8" />
   <title>Tasky</title>
-  <script src="scripts/bundle.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 <body>
-  <h2>change</h2>
+<div class="container">
+  <div class="row vcenter">
+    <div class="col-md-3 col-lg-4"></div>
+    <div class="col-sm-12 col-md-6 col-lg-4 ">
+
+      <div class="list-group" id="todo-list">
+        <li class="list-group-item active">To Do List</li>
+
+      </div>
+    </div>
+  </div>
+</div>
+
   <script type="text/javascript">
   // console.log('starting script')
       if('serviceWorker' in navigator) {
@@ -13,10 +30,11 @@
       navigator.serviceWorker
                .register('sw.js')
                .then(function() { console.log("Service Worker Registered"); });
-      } else{
+      } else {
         console.log('Gulp sucks');
       }
 
   </script>
+  <script src="scripts/bundle.js"></script>
 </body>
 </html>
